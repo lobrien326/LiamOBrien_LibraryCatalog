@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>About Us - MPL</title>
+        <meta charset="utf-8">
+        <link type="text/css" rel="stylesheet" href="style.css">
+        <script src="script.js"></script>
+    </head>
+
+    <body>
+        <header>
+            <div id="header_content">
+                <div id="title">
+                    <h1><a href="/">Medilan Public Library District</a></h1>
+                </div>
+                <div id="sublinks">
+                    <a href="/about">Learn about the Library</a>
+                    <a href="/calendar">Calendar of Events</a>
+                    <a href="/library_cards">Get a Library Card</a>
+                    <a href="/login">Sign in with your Card</a>
+                </div>
+            </div>
+            <div id="patron_info">
+                <% if (data.name) { %>
+                    <p>Welcome, <%data.name%>.</p>
+                <%} else { %>
+                    <p>Welcome, guest.</p>
+                <% } %>
+            </div>
+        </header>
+
+        <div id="filler_content">
+            <p>This page will be heavily dependent on backend development, as it is the place where users can sign up for an account with the library and are given their card number.</p>
+        </div>
+
+        <footer>
+            <p>Developed by Liam O'Brien | There would probably be legal rights notices here if I intended to host this publicly.</p>
+        </footer>
+
+    </body>
+</html>

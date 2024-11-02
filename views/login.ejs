@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>About Us - MPL</title>
+        <meta charset="utf-8">
+        <link type="text/css" rel="stylesheet" href="style.css">
+        <script src="script.js"></script>
+    </head>
+
+    <body>
+        <header>
+            <div id="header_content">
+                <div id="title">
+                    <h1><a href="/">Medilan Public Library District</a></h1>
+                </div>
+                <div id="sublinks">
+                    <a href="/about">Learn about the Library</a>
+                    <a href="/calendar">Calendar of Events</a>
+                    <a href="/library_cards">Get a Library Card</a>
+                    <a href="/login">Sign in with your Card</a>
+                </div>
+            </div>
+            <div id="patron_info">
+                <% if (data.name) { %>
+                    <p>Welcome, <%data.name%>.</p>
+                <%} else { %>
+                    <p>Welcome, guest.</p>
+                <% } %>
+            </div>
+        </header>
+
+        <div id="filler_content">
+            <p>And, yet again, here is content that I can't develop very well before implementing the backend. I'll just end up having to change it if I try. This page allows users who have accounts already to sign in, granting access to enhanced
+                library features like placing holds on books. I'm probably going to make a lot of changes to how the sign-in process is handled, even from what I already have- for example, I'm not sure if I want to use the corner welcome message that
+                I have, and I know I'll have to change the link to this page in some way.
+            </p>
+        </div>
+
+        <footer>
+            <p>Developed by Liam O'Brien | There would probably be legal rights notices here if I intended to host this publicly.</p>
+        </footer>
+
+    </body>
+</html>

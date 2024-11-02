@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Medilan Public Library</title>
+        <meta charset="utf-8">
+        <link type="text/css" rel="stylesheet" href="style.css">
+        <script src="script.js"></script>
+    </head>
+
+    <body>
+        <header>
+            <div id="header_content">
+                <div id="title">
+                    <h1><a href="/">Medilan Public Library District</a></h1>
+                </div>
+                <div id="sublinks">
+                    <a href="/about">Learn about the Library</a>
+                    <a href="/calendar">Calendar of Events</a>
+                    <a href="/library_cards">Get a Library Card</a>
+                    <a href="/login">Sign in with your Card</a>
+                </div>
+            </div>
+            <div id="patron_info">
+                <% if (data.name) { %>
+                    <p>Welcome, <%data.name%>.</p>
+                <%} else { %>
+                    <p>Welcome, guest.</p>
+                <% } %>
+            </div>
+        </header>
+
+        <div id="search_zone">
+            <div id="search_bar">
+                <input type="text" id="search_box" name="search_bar" placeholder="Search by Title, Author, ISBN, etc.">
+                <button>Search</button>
+            </div>
+            <div id="search_results">
+                <p>Search results will be listed beneath the search bar, and will link to individual pages for each book. I've done something like that before with sql, but not with mongodb. Since both DBMS have their limitations, I'm not leaning into either
+                    one yet, and will sculpt future development around which DBMS seems more suited to my needs. On an unrelated note, I'm getting very tired of wrestling with CSS, which is the second reason I'm saving a lot of development for later. Any changes
+                    I make tend to only make the CSS situation worse.
+                </p>
+            </div>
+        </div>
+
+
+        <!-- <div id="content">
+
+            <div id="input_boxes">
+                
+                    <div class="input_box" id="basic_stats">
+                        <div class="input_group">
+                            <div class="input_labels">
+                                <label for="monster_name">Name:</label>
+                                <label for="sizetype">Size and Type:</label>
+                                <label for="alignment">Alignment:</label>
+                            </div>
+                            <div class="input_inputs">
+                                <input type="text" id="monster_name" value='<%=data.monster_name%>'>
+                                <input type="text" id="sizetype" value="<%=data.sizetype%>">
+                                <input type="text" id="alignment" value="<%=data.alignment%>">
+                            </div>
+                        </div>
+                        <div class="input_group">
+                            <div class="input_labels">
+                                <label for="AC">AC:</label>
+                                <label for="HP">HP:</label>
+                                <label for="speed">Speed(s):</label>
+                            </div>
+                            <div class="input_inputs">
+                                <input type="text" id="AC" value="<%=data.AC%>">
+                                <input type="text" id="HP" value="<%=data.HP%>">
+                                <input type="text" id="speed" value="<%=data.speed%>">
+                            </div>
+                        </div>
+                        <div class="input_group">
+                            <div class="input_labels">
+                                <label for="STR">STR:</label>
+                                <label for="DEX">DEX:</label>
+                                <label for="CON">CON:</label>
+                                <label for="INT">INT:</label>
+                                <label for="WIS">WIS:</label>
+                                <label for="CHA">CHA:</label>
+                            </div>
+                            <div class="input_inputs" id="attribute_inputs">
+                                <input type="text" class="attribute" id="STR" value="<%=data.STR%>">
+                                <input type="text" class="attribute" id="DEX" value="<%=data.DEX%>">
+                                <input type="text" class="attribute" id="CON" value="<%=data.CON%>">
+                                <input type="text" class="attribute" id="INT" value="<%=data.INT%>">
+                                <input type="text" class="attribute" id="WIS" value="<%=data.WIS%>">
+                                <input type="text" class="attribute" id="CHA" value="<%=data.CHA%>">
+                            </div>
+                        </div>
+                        <div class="input_group">
+                            <div class="input_labels">
+                                <label for="senses">Senses:</label>
+                                <label for="languages">Languages:</label>
+                            </div>
+                            <div class="input_inputs">
+                                <input type="text" id="senses" value="<%=data.senses%>">
+                                <input type="text" id="languages" value="<%=data.languages%>">
+                            </div>
+                        </div>
+                        <div class="input_group">
+                            <div class="input_labels">
+                                <label for="CR">CR:</label>
+                                <label for="prof_bonus">Proficiency Bonus:</label>
+                            </div>
+                            <div class="input_inputs">
+                                <input type="text" id="CR" value="<%=data.CR%>">
+                                <input type="text" id="prof_bonus" value="<%=data.prof_bonus%>">
+                            </div>
+                        </div>
+                    </div>
+            
+                    <div class="input_box" id="saving_throw_proficiencies">
+                        <div class="input_group">
+                            <label for="saving_throws">Saving Throws:</label>
+                            <input type="text" id="saving_throws" value="<%=data.saving_throws%>">
+                        </div>
+                        <div class="input_group">
+                            <label for="proficiencies">Proficiencies:</label>
+                            <input type="text" id="proficiencies" value="<%=data.proficiencies%>">
+                        </div>
+                    </div>
+            
+                    <div class="input_box" id="damage_modifiers">
+                        <div class="input_group">
+                            <label for="resistances">Damage Resistances:</label>
+                            <input type="text" id="resistances" value="<%=data.resistances%>">
+                        </div>
+                        <div class="input_group">
+                            <label for="immunities">Damage Immunities:</label>
+                            <input type="text" id="immunities" value="<%=data.immunities%>">
+                        </div>
+                        <div class="input_group">
+                            <label for="vulnerabilities">Damage Vulnerabilities:</label>
+                            <input type="text" id ="vulnerabilities" value="<%=data.vulnerabilities%>">
+                        </div>
+                        <div class="input_group">
+                            <label for="condition_immunities">Condition Immunities:</label>
+                            <input type="text" id="condition_immunities" value="<%=data.condition_immunities%>">
+                        </div>
+                    </div>
+            
+                    <div class="input_box" id="traits">
+                        <div class="input_group">
+                            <label for="traits">Traits:</label>
+                            <textarea id="traits"><%=data.traits%></textarea>
+                        </div>
+                    </div>
+            
+                    <div class="input_box" id="actions">
+                        <div class="input_group">
+                            <label for="actions">Actions:</label>
+                            <textarea id="actions"><%=data.actions%></textarea>
+                        </div>
+                    </div>
+            
+                    <div class="input_box" id="bonus_actions">
+                        <div class="input_group">
+                            <label for="bonus_actions">Bonus Actions:</label>
+                            <textarea id="bonus_actions"><%=data.bonus_actions%></textarea>
+                        </div>
+                    </div>
+            
+                    <div class="input_box" id="legendary_actions">
+                        <div class="input_group">
+                            <label for="legendary_actions">Legendary Actions:</label>
+                            <textarea id="legendary_actions"><%=data.legendary_actions%></textarea>
+                        </div>
+                    </div>
+            
+                    <div class="input_box" id="reactions">
+                        <div class="input_group">
+                            <label for="reactions">Reactions:</label>
+                            <textarea id="reactions"><%=data.reactions%></textarea>
+                        </div>
+                    </div>
+            
+                    <div class="input_box" id="lair_actions">
+                    <div class="input_group">
+                        <label for="lair_actions">Lair Actions:</label>
+                        <textarea id="lair_actions"><%=data.lair_actions%></textarea>
+                    </div>
+                </div>
+                
+            </div>
+    
+            <div id="statblock_box">
+                <div id="1st_zone">
+                <h1 class="statblock_text maroon_text" id="monster_name_out"></h1>
+                <section class="concat" id="size_type_alignment_line">
+                    <h2 class="statblock_text" id="sizetype_out"></h2>
+                    <h2 class="statblock_text inline_comma">,</h2>
+                    <h2 class="statblock_text inline_text" id="alignment_out"></h2>
+                </section>
+                </div>
+                <img src="line.png" class="line" alt="A maroon line insert should be here. With this missing, the statblock won't look right, so try reloading the page.">
+                <div id="2nd_zone">
+                    <section class="concat" id="AC_line">
+                        <h2 class="statblock_text maroon_text bold_text">Armor Class</h2>
+                        <h2 class="statblock_text maroon_text inline_text" id="AC_out"></h2>
+                    </section>
+                    <section class="concat" id="HP_line">
+                        <h2 class="statblock_text maroon_text bold_text">Hit Points</h2>
+                        <h2 class="statblock_text maroon_text inline_text" id="HP_out"></h2>
+                    </section>
+                    <section class="concat" id="speed_line">
+                        <h2 class="statblock_text maroon_text bold_text">Speed</h2>
+                        <h2 class="statblock_text maroon_text inline_text" id="speed_out"></h2>
+                    </section> 
+                </div>
+                <img src="line.png" class="line" alt="A maroon line insert should be here. With this missing, the statblock won't look right, so try reloading the page.">
+                <div id="3rd_zone">
+                    <table class="statblock_text maroon_text" id="attributes_table">
+                        <tr>
+                            <th>STR</th>
+                            <th>DEX</th>
+                            <th>CON</th>
+                            <th>INT</th>
+                            <th>WIS</th>
+                            <th>CHA</th>
+                        </tr>
+                        <tr>
+                            <td id="STR_out"></td>
+                            <td id="DEX_out"></td>
+                            <td id="CON_out"></td>
+                            <td id="INT_out"></td>
+                            <td id="WIS_out"></td>
+                            <td id="CHA_out"></td>
+                        </tr>
+                    </table>
+                </div>
+                <img src="line.png" class="line" alt="A maroon line insert should be here. With this missing, the statblock won't look right, so try reloading the page.">
+                <div id="4th_zone">
+                    <section class="concat" id="saving_throws_line">
+                        <h2 class="statblock_text maroon_text bold_text">Saving Throws</h2>
+                        <h2 class="statblock_text maroon_text inline_text" id="saving_throws_out"></h2>
+                    </section>
+                    <section class="concat" id="proficiencies_line">
+                        <h2 class="statblock_text maroon_text bold_text">Skills</h2>
+                        <h2 class="statblock_text maroon_text inline_text" id="proficiencies_out"></h2>
+                    </section>
+                    <section class="concat" id="resistance_line">
+                        <h2 class="statblock_text maroon_text bold_text">Damage Resistances</h2>
+                        <h2 class="statblock_text maroon_text inline_text" id="resistances_out"></h2>
+                    </section>
+                    <section class="concat" id="immunities_line">
+                        <h2 class="statblock_text maroon_text bold_text">Damage Immunities</h2>
+                        <h2 class="statblock_text maroon_text inline_text" id="immunities_out"></h2>
+                    </section>
+                    <section class="concat" id="vulnerabilities_line">
+                        <h2 class="statblock_text maroon_text bold_text">Damage Vulnerabilities</h2>
+                        <h2 class="statblock_text maroon_text inline_text" id="vulnerabilities_out"></h2>
+                    </section>
+                    <section class="concat" id="condition_immunities_line">
+                        <h2 class="statblock_text maroon_text bold_text">Condition Immunities</h2>
+                        <h2 class="statblock_text maroon_text inline_text" id="condition_immunities_out"></h2>
+                    </section>
+                    <section class="concat" id="senses_line">
+                        <h2 class="statblock_text maroon_text bold_text">Senses</h2>
+                        <h2 class="statblock_text maroon_text inline_text" id="senses_out"></h2>
+                    </section>
+                    <section class="concat" id="languages_line">
+                        <h2 class="statblock_text maroon_text bold_text">Languages</h2>
+                        <h2 class="statblock_text maroon_text inline_text" id="languages_out"></h2>
+                    </section>
+                    <section id="CR_prof_line">
+                        <section class="concat" id="CR_line">
+                            <h2 class="statblock_text maroon_text bold_text">CR</h2>
+                            <h2 class="statblock_text maroon_text inline_text" id="CR_out"></h2>
+                        </section>
+                        <section class="concat" id="prof_bonus_line">
+                            <h2 class="statblock_text maroon_text bold_text">Proficiency Bonus</h2>
+                            <h2 class="statblock_text maroon_text inline_text" id="prof_bonus_out"></h2>
+                        </section>
+                    </section>
+                </div>
+                <img src="line.png" class="line" alt="A maroon line insert should be here. With this missing, the statblock won't look right, so try reloading the page.">
+                <div id="traits_zone">
+                    <p class="statblock_text property_action" id="traits_out"></p>
+                </div>
+                <div id="actions_zone">
+                    <h2 class="statblock_text maroon_text actions_title">Actions</h2>
+                    <img src="line.png" class="line" alt="A maroon line insert should be here. With this missing, the statblock won't look right, so try reloading the page.">
+                    <p class="statblock_text property_action" id="actions_out"></p>
+                </div>
+                <div id="bonus_actions_zone">
+                    <h2 class="statblock_text maroon_text actions_title">Bonus Actions</h2>
+                    <img src="line.png" class="line" alt="A maroon line insert should be here. With this missing, the statblock won't look right, so try reloading the page.">
+                    <p class="statblock_text property_action" id="bonus_actions_out"></p>
+                </div>
+                <div id="legendary_actions_zone">
+                    <h2 class="statblock_text maroon_text actions_title">Legendary Actions</h2>
+                    <img src="line.png" class="line" alt="A maroon line insert should be here. With this missing, the statblock won't look right, so try reloading the page.">
+                    <p class="statblock_text property_action" id="legendary_actions_out"></p>
+                </div>
+                <div id="reactions_zone">
+                    <h2 class="statblock_text maroon_text actions_title">Reactions</h2>
+                    <img src="line.png" class="line" alt="A maroon line insert should be here. With this missing, the statblock won't look right, so try reloading the page.">
+                    <p class="statblock_text property_action" id="reactions_out"></p>
+                </div>
+                <div id="lair_actions_zone">
+                    <h2 class="statblock_text maroon_text actions_title">Lair Actions</h2>
+                    <img src="line.png" class="line" alt="A maroon line insert should be here. With this missing, the statblock won't look right, so try reloading the page.">
+                    <p class="statblock_text property_action" id="lair_actions_out"></p>
+                </div>
+                <div id="bottom_zone"></div>
+            </div>
+        </div> -->
+        <footer>
+            <p>Developed by Liam O'Brien | There would probably be legal rights notices here if I intended to host this publicly.</p>
+        </footer>
+
+    </body>
+</html>
