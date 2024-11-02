@@ -1,0 +1,313 @@
+/* .save_form input[type='text'], .save_form textarea{
+    display:none;
+}
+header img[alt="question mark"] {
+    position:absolute;
+    top:20px;
+    left:20px;
+    height:30px;
+}
+header input[alt="save button"] {
+    position:absolute;
+    top:15px;
+    right:175px;
+    height:40px;
+}
+header img[alt='list button'] {
+    position:absolute;
+    top:15px;
+    right:120px;
+    height:40px;
+}
+header img[alt='trash button'] {
+    position:absolute;
+    top:15px;
+    right:70px;
+    height:40px;
+}
+header img[alt="reset button"] {
+    position:absolute;
+    top:15px;
+    right:20px;
+    height:40px;
+}
+header img:hover, header input:hover {
+    cursor:pointer;
+} */
+
+header {
+    position:fixed;
+    top:0px;
+    left:0px;
+    right:0px;
+    background-color:rgb(126, 206, 21);
+    height:min-content;
+    z-index:1;
+}
+
+#header_content {
+    display:flex;
+    flex-direction:column;
+}
+
+#title {
+    display:flex;
+    justify-content: center;
+}
+#title > h1 {
+    color:white;
+    font-size:4.5vh;
+    font-family:serif;
+    text-wrap:nowrap;
+    margin:0.25em 0em 0.25em 0em;
+}
+#title > h1 > a {
+    color:white;
+    text-decoration-line:none;
+}
+
+#sublinks {
+    display:flex;
+    flex-direction:row;
+    justify-content:center;
+}
+#sublinks > a {
+    font-size: 2vh;
+    color:white;
+    margin:0em 1em 1em 1em;
+    text-decoration-line:none;
+    text-wrap: nowrap;
+}
+
+#patron_info {
+    position:absolute;
+    top:0px;
+    right:0px;
+    padding:1vh 1vw;
+    background-color: rgba(255, 255, 255);
+    border-style:solid;
+    border-width:1px;
+    border-color:black;
+}
+#patron_info > p {
+    margin:0;
+    font-size:1.8vh;
+}
+
+/* I want to get this so that the font goes bold but doesn't push away the other links when it does. That's a problem for another day, because this works well enough. */
+#sublinks > a:hover {
+    cursor:pointer;
+    font-weight:bold;
+}
+
+#search_zone {
+    display:flex;
+    flex-direction: column;
+    position:relative;
+    top:35vh;
+}
+#search_bar {
+    display:flex;
+    justify-content: center;
+}
+#search_box {
+    width:20vw;
+}
+
+#filler_content {
+    position:relative;
+    padding-top:100px;
+}
+
+footer {
+    position:fixed;
+    bottom:0px;
+    left:0px;
+    right:0px;
+    height:40px;
+    font-family:serif;
+    font-size:smaller;
+    text-align:center;
+    border: 2px solid #808080;
+    background-color:#bebebe;
+    z-index:1;
+}
+footer input[alt="save button"] {
+    position:absolute;
+    top:15px;
+    right:75px;
+    height:40px;
+}
+
+/* textarea {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #bebebe;
+    border-radius: 4px;
+}
+
+#basic_stats input {
+    box-sizing: border-box;
+    width: 40%;
+    padding: 10px;
+    border: 1px solid #bebebe;
+    border-radius: 4px;
+}
+
+#saving_throw_proficiencies input, #damage_modifiers input {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #bebebe;
+    border-radius: 4px;
+}
+
+#content {
+    display:flex;
+    gap:10px;
+    position:relative;
+    padding-top:70px;
+    padding-bottom:42px;
+}
+#about-content {
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    position:relative;
+    padding-top:70px;
+    padding-bottom:42px;
+}
+#statblock_list-content {
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    position:relative;
+    padding-top:70px;
+    padding-bottom:42px;
+}
+#forms {
+    display:flex;
+    justify-content: space-between;
+}
+.search_result {
+    display:flex;
+}
+
+#input_boxes {
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    min-width:60%;
+    text-wrap:nowrap;
+}
+
+.input_box{
+    display:flex;
+    flex-direction:column;
+    margin:10px;
+    border: 2pt solid black;
+}
+
+.input_group {
+    display:flex;
+    flex-direction:column;
+    max-height:100%;
+    margin:10px;
+}
+
+.input_labels {
+    display:flex;
+    justify-content:space-around;
+}
+
+.input_inputs {
+    display:flex;
+    justify-content:space-around;
+}
+
+#statblock_box {
+    display:flex;
+    flex-direction: column;
+    position:relative;
+    
+    height:100%;
+    min-width:39%;
+    background-color: rgb(253,241,220);
+}
+
+.statblock_text {
+    margin-left:2%;
+    margin-top:0%;
+    margin-bottom:0%;
+    font-size:16pt;
+    font-family:sans-serif;
+    font-weight:normal;
+}
+.inline_comma {
+    margin-left:0%;
+}
+.inline_text {
+    margin-left:1%;
+}
+.maroon_text {
+    color:rgb(130,35,20);
+}
+.bold_text {
+    font-weight:bold;
+}
+.line {
+    margin-left:2%;
+    margin-top:1%;
+    margin-bottom:1%;
+    width:96%;
+}
+.concat {
+    display:flex;  
+}
+.property_title {
+    font-weight:bold;
+    font-style:italic;
+}
+.actions_title {
+    margin-top:24pt;
+    font-size:24pt;
+}
+.hidden {
+    display:none;
+}
+
+#monster_name_out {
+    font-size:40pt;
+    font-family:serif;
+    font-weight:bold;
+    font-variant:small-caps;
+}
+#size_type_alignment_line {
+    font-style:italic;
+}
+#attributes_table {
+    margin:0%;
+    width:100%;
+    text-align:center;
+    
+}
+#attributes_table th, #attributes_table td {
+    width:16%;
+}
+#CR_prof_line {
+    display:flex;
+    margin-left:1.35%;
+    margin-right:2%;
+    justify-content: space-between;
+    text-wrap: nowrap;
+}
+#bottom_zone {
+    margin-bottom:2%;
+}
+
+
+.output_statblock img {
+    max-width:100%;
+    max-height:100%;
+} */
