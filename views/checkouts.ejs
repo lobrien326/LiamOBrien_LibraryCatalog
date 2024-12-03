@@ -22,6 +22,11 @@
             </div>
         </header>
 
+        <!-- This used to be an entirely different page, where patrons could log in to their account, which used the same
+         card number/pin system, and then interact with things around the website relating to their account. As I've explained
+         in several places, this didn't work out. So I revamped this into a page to view what books an account has checked out,
+         and to return them. This first bit is just the sign in- it will pull a list of books checked out by the card_number
+         if the card_number and pin match.-->
         <div id="checkout_check_credentials">
             <form method="post" action="/checkouts">
                 <input type="text" class="uName" name="card_number" placeholder="Enter Library Card Number" required="true">
@@ -30,6 +35,8 @@
             </form>
         </div>
 
+        <!-- This is basically just a revamp of the search results from the index page. There is an added button to return
+         books, which redirects back to this page when pressed- and with the returned book conveniently gone!-->
         <% if (bookData) { %>
         <div id="search_results">
             <ul>

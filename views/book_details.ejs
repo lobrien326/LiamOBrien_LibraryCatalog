@@ -22,6 +22,9 @@
             </div>
         </header>
 
+        <!-- This page is fairly simple. It displays all important book details, the cover, and either explains that it is
+         checked out or gives the option to check it out. If the checkout fails (because of nonmatching information) it just
+         redirects here. If the checkout is successful, it redirects to the checkouts page.-->
         <div style="display:flex;">
             <div id="book_details">
                 <h2><em><%=bookData.title%></em></h2>
@@ -37,6 +40,8 @@
                         <input type="hidden" name="isbn" value="<%=bookData.isbn%>">
                         <button>Checkout</button>
                     </form>
+                    <!-- This is a remnant of an old plan I had to verify that the credentials entered were good before redirecting.
+                     It didn't pan out, but I didn't want to get rid of it.-->
                     <!-- <a onclick='verifyCredentials("checkout",document.getElementById("card_number").value,document.getElementById("pin").value)'>Checkout</a> -->
                 <% } %>
             </div>

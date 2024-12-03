@@ -8,6 +8,9 @@
     </head>
 
     <body>
+        <!-- The header used to be much more complicated- but I couldn't get it to work, unfortunately, so this simple yet effective
+         version returned. (In short, every link used to post in order to maintain login information page-to-page. Not an elegant
+         solution, and it still had lots of bugs when I cut it.) -->
         <header>
             <div id="header_content">
                     <div id="title">
@@ -22,6 +25,9 @@
             </div>
         </header>
         
+        <!-- this if statement changes the layout of the page based on whether it has book data loaded- essentially, based on
+         whether there has been a search query. If there hasn't been, the else statement executes and the search bar is mid-page.
+         If there has been a search query, the search bar moves up the page to make space for the results.-->
         <% if (bookData) { %>
         <div id="search_zone">
             <div id="search_bar">
@@ -31,6 +37,10 @@
                 </form>
             </div>
             <div id="search_results">
+                <!-- I pretty much recycled the code from my last project's search function for this, but made it look more unique.
+                 Combined with the css, this should create a centered, somewhat off-alignment grid of search results. This result is
+                 intended, as it looks more natural rather than overly structured. A perfect grid or a basic list would have been very
+                 plain.-->
                 <ul>
                     <% for (let i in bookData) {%>
                         <section class="search_result">
@@ -45,6 +55,8 @@
                 </ul>
             </div>
         </div>
+        <!-- This is the else statement referenced earlier. As you can see, there are only two differences: and added inline
+         style tag, and the removal of the code that would generate a results list.-->
         <% } else { %>
             <div id="search_zone" style="top:35vh;">
                 <div id="search_bar">
@@ -56,9 +68,12 @@
             </div>
         <% } %>
    
+        <!-- This footer gives due credit to the source of many of the cover images on the site. A limited number of covers,
+         not available from this source, were added to the public directory as alternates. The footer also warns that sometimes
+         the server it is pulling from doesn't want to send images, which causes a flickering effect. It's annoying, and were
+         this an actual library they'd want to have their own internal cover image repository for every book.-->
         <footer>
             <p>Developed by Liam O'Brien | Many cover images courtesy of <a href='https://openlibrary.org/'>Open Library</a>. Blame them if they flicker and don't load.</p>
         </footer>
-
     </body>
 </html>
