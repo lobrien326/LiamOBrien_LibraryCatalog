@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Checkouts - MPL</title>
+        <meta charset="utf-8">
+        <link type="text/css" rel="stylesheet" href="style.css">
+        <script src="script.js"></script>
+    </head>
+
+    <body>
+        <header>
+            <div id="header_content">
+                    <div id="title">
+                        <h1><a href="/">Medilan Public Library District</a></h1>
+                    </div>
+                    <div id="sublinks">
+                        <a href="/about">Learn about the Library</a>
+                        <a href="/calendar">Calendar of Events</a>
+                        <a href="/library_cards">Get a Library Card</a>
+                        <a href="/checkouts">View your Checked Out Books</a>
+                    </div>
+            </div>
+        </header>
+
+        <div id="checkout_check_credentials">
+            <form method="post" action="/checkouts">
+                <input type="text" class="uName" name="card_number" placeholder="Enter Library Card Number" required="true">
+                <input type="text" class="pWord" name="pin" placeholder="Enter PIN" required="true">
+                <button>View</button>
+            </form>
+        </div>
+
+        <% if (bookData) { %>
+        <div id="search_results">
+            <ul>
+                <% for (let i in bookData) {%>
+                    <section class="search_result">
+                        <a href='/book?isbn=<%=bookData[i].isbn%>'>
+                            <li>
+                                <img src="<%=bookData[i].isbn%>.jpg"  width="100px" onerror="this.src='https:\/\/covers.openlibrary.org/b/isbn/<%=bookData[i].isbn%>.jpg'">
+                                <section>
+                                    <em><%=bookData[i].title%></em><br>by&nbsp<%=bookData[i].author%><br><br><br><br>
+                                    <form id="return" method="post" action="/return">
+                                        <input type="hidden" name="card_number" value="<%=data.card_number%>">
+                                        <input type="hidden" name="pin" value="<%=data.pin%>">
+                                        <input type="hidden" name="isbn" value="<%=bookData[i].isbn%>">
+                                        <a onclick='submitFunction("return")'>Return this book</a>
+                                    </form>
+                                </section>
+                            </li>
+                        </a>
+
+                    </section>
+                <%}%>
+            </ul>
+        </div>
+        <% } %>
+
+        <footer>
+            <p>Developed by Liam O'Brien | Many cover images courtesy of <a href='https://openlibrary.org/'>Open Library</a>. Blame them if they flicker and don't load.</p>
+        </footer>
+
+    </body>
+</html>

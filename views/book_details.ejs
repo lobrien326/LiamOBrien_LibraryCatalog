@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title><%=bookData.title%> - MPL</title>
+        <meta charset="utf-8">
+        <link type="text/css" rel="stylesheet" href="style.css">
+        <script src="script.js"></script>
+    </head>
+
+    <body>
+        <header>
+            <div id="header_content">
+                    <div id="title">
+                        <h1><a href="/">Medilan Public Library District</a></h1>
+                    </div>
+                    <div id="sublinks">
+                        <a href="/about">Learn about the Library</a>
+                        <a href="/calendar">Calendar of Events</a>
+                        <a href="/library_cards">Get a Library Card</a>
+                        <a href="/checkouts">View your Checked Out Books</a>
+                    </div>
+            </div>
+        </header>
+
+        <div style="display:flex;">
+            <div id="book_details">
+                <h2><em><%=bookData.title%></em></h2>
+                <h3>by <%=bookData.author%>&nbsp&nbsp&nbsp&nbsp(ISBN <%=bookData.isbn%>)</h3>
+                <h4>Published by <%=bookData.publisher%> in <%=bookData.publication_year%></h4>
+                <% if (bookData.checked_out == true) { %>
+                    <p>The call number for this book is <%=bookData.sort_location%>. It is currently checked out.</p>
+                <%} else { %>
+                    <p>The call number for this book is <%=bookData.sort_location%>. To check it out, enter your library card number and pin below.</p>
+                    <form id="checkout" method="post" action="/checkout">
+                        <input type="text" class="uName" name="card_number" placeholder="Enter Library Card Number" required="true">
+                        <input type="text" class="pWord" name="pin" placeholder="Enter PIN" required="true">
+                        <input type="hidden" name="isbn" value="<%=bookData.isbn%>">
+                        <button>Checkout</button>
+                    </form>
+                    <!-- <a onclick='verifyCredentials("checkout",document.getElementById("card_number").value,document.getElementById("pin").value)'>Checkout</a> -->
+                <% } %>
+            </div>
+            <div id="book_cover">
+                <img src="<%=bookData.isbn%>.jpg" onerror="this.src='https:\/\/covers.openlibrary.org/b/isbn/<%=bookData.isbn%>.jpg'" width="300px;">
+            </div>
+        </div>
+
+        <footer>
+            <p>Developed by Liam O'Brien | Many cover images courtesy of <a href='https://openlibrary.org/'>Open Library</a>. Blame them if they flicker and don't load.</p>
+        </footer>
+
+    </body>
+</html>

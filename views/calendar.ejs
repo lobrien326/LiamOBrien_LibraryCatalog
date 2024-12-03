@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>About Us - MPL</title>
+        <title>Calendar - MPL</title>
         <meta charset="utf-8">
         <link type="text/css" rel="stylesheet" href="style.css">
         <script src="script.js"></script>
@@ -10,33 +10,80 @@
     <body>
         <header>
             <div id="header_content">
-                <div id="title">
-                    <h1><a href="/">Medilan Public Library District</a></h1>
-                </div>
-                <div id="sublinks">
-                    <a href="/about">Learn about the Library</a>
-                    <a href="/calendar">Calendar of Events</a>
-                    <a href="/library_cards">Get a Library Card</a>
-                    <a href="/login">Sign in with your Card</a>
-                </div>
-            </div>
-            <div id="patron_info">
-                <% if (data.name) { %>
-                    <p>Welcome, <%data.name%>.</p>
-                <%} else { %>
-                    <p>Welcome, guest.</p>
-                <% } %>
+                    <div id="title">
+                        <h1><a href="/">Medilan Public Library District</a></h1>
+                    </div>
+                    <div id="sublinks">
+                        <a href="/about">Learn about the Library</a>
+                        <a href="/calendar">Calendar of Events</a>
+                        <a href="/library_cards">Get a Library Card</a>
+                        <a href="/checkouts">View your Checked Out Books</a>
+                    </div>
             </div>
         </header>
 
         <div id="filler_content">
-            <p>This is another placeholder page. Ideally I will have some sort of calendar which can load event data from the backend, but I won't be sure how I want to implement it until I start working on that. If that plan doesn't work out,
-                I will just have a static calendar of events for a single month here, populated with some basic stuff. It'll probably just be a very big html table.
-            </p>
+            <h2>Calendar of Events - January 2025</h2>
+            <table id="calendar">
+                <tr>
+                    <th>Sunday</th>
+                    <th>Monday</th>
+                    <th>Tuesday</th>
+                    <th>Wednesday</th>
+                    <th>Thursday</th>
+                    <th>Friday</th>
+                    <th>Saturday</th>
+                </tr>
+                <tr>
+                    <td>29</td>
+                    <td>30</td>
+                    <td>31</td>
+                    <td>1 Closed for New Years Day</td>
+                    <td>2</td>
+                    <td>3</td>
+                    <td>4</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>6 Shortened Seasonal Hours End</td>
+                    <td>7</td>
+                    <td>8</td>
+                    <td>9</td>
+                    <td>10</td>
+                    <td>11</td>
+                </tr>
+                <tr>
+                    <td>12</td>
+                    <td>13</td>
+                    <td>14</td>
+                    <td>15</td>
+                    <td>16</td>
+                    <td>17</td>
+                    <td>18</td>
+                </tr>
+                <tr>
+                    <td>19</td>
+                    <td>20 Closed for MLK Day</td>
+                    <td>21</td>
+                    <td>22</td>
+                    <td>23</td>
+                    <td>24</td>
+                    <td>25</td>
+                </tr>
+                <tr>
+                    <td>26</td>
+                    <td>37</td>
+                    <td>28</td>
+                    <td>29</td>
+                    <td>30</td>
+                    <td>31</td>
+                    <td>1</td>
+                </tr>
+            </table>
         </div>
 
         <footer>
-            <p>Developed by Liam O'Brien | There would probably be legal rights notices here if I intended to host this publicly.</p>
+            <p>Developed by Liam O'Brien | Many cover images courtesy of <a href='https://openlibrary.org/'>Open Library</a>. Blame them if they flicker and don't load.</p>
         </footer>
 
     </body>

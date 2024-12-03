@@ -61,7 +61,7 @@ header {
     text-wrap:nowrap;
     margin:0.25em 0em 0.25em 0em;
 }
-#title > h1 > a {
+#title > h1  a {
     color:white;
     text-decoration-line:none;
 }
@@ -71,13 +71,25 @@ header {
     flex-direction:row;
     justify-content:center;
 }
-#sublinks > a {
+#sublinks a {
     font-size: 2vh;
     color:white;
     margin:0em 1em 1em 1em;
     text-decoration-line:none;
     text-wrap: nowrap;
 }
+#sublinks form a {
+    font-size: 2vh;
+    color:white;
+    margin:0em 1em 1em 1em;
+    text-decoration-line:none;
+    text-wrap: nowrap;
+}
+#sublinks a:hover {
+    cursor:pointer;
+    font-weight:bold;
+}
+
 
 #patron_info {
     position:absolute;
@@ -94,17 +106,14 @@ header {
     font-size:1.8vh;
 }
 
-/* I want to get this so that the font goes bold but doesn't push away the other links when it does. That's a problem for another day, because this works well enough. */
-#sublinks > a:hover {
-    cursor:pointer;
-    font-weight:bold;
-}
+
 
 #search_zone {
     display:flex;
     flex-direction: column;
     position:relative;
-    top:35vh;
+    top:12vh;
+    padding-bottom:50px;
 }
 #search_bar {
     display:flex;
@@ -113,10 +122,76 @@ header {
 #search_box {
     width:20vw;
 }
+#search_results ul {
+    display:flex;
+    flex-direction:row;
+    flex-wrap:wrap;
+    justify-content:center;
+}
+#search_results a {
+    font-size: 12pt;
+    text-decoration-line:none;
+    color:black;
+}
+#search_results a:hover {
+    cursor:pointer;
+    font-weight:bold;
+}
+.search_result li {
+    display:flex;
+    padding:2vw;
+    max-width:25vw;
+}
+
+#book_details {
+    position:relative;
+    padding-top:100px;
+    text-wrap:wrap;
+    width:30%;
+}
+#book_cover {
+    position:relative;
+    padding-top:100px;
+}
+.pWord {
+    width:15%;
+}
+#checkout_check_credentials {
+    position:relative;
+    padding-top:100px;
+    width:30%
+}
+#return a:hover {
+    color:rgb(202, 14, 14);
+}
+#sign_up {
+    position:relative;
+    padding-top:100px;
+}
 
 #filler_content {
     position:relative;
     padding-top:100px;
+}
+
+#calendar {
+    width:100%;
+    border:1px solid black;
+    border-collapse:collapse;
+}
+#calendar th {
+    width:14%;
+    height:2em;
+    border:1px solid black;
+    border-collapse:collapse;
+    padding:1em;
+    font-size:larger;
+}
+
+#calendar td {
+    border:1px solid black;
+    border-collapse:collapse;
+    padding-bottom:5em;
 }
 
 footer {
